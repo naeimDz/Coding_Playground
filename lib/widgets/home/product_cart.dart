@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:provider/provider.dart';
 import '../../constants.dart';
+import '../../mobx/favorite_mobx.dart';
 import '../../models/product.dart';
 
 class ProductCard extends StatelessWidget {
@@ -7,104 +10,137 @@ class ProductCard extends StatelessWidget {
     super.key,
     required this.itemIndex,
     required this.product,
-    required this.press,
   });
-
   final int itemIndex;
   final Product product;
-  final Function press;
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    Favorite favorite = Provider.of<Favorite>(context);
+    bool check(int id) {
+      return favorite.favoriteProducts
+          .where((element) => element.id == id)
+          .isEmpty;
+    }
+
     return Container(
       margin: const EdgeInsets.symmetric(
         horizontal: kDefaultPadding,
         vertical: kDefaultPadding / 2,
       ),
-      height: 190.0,
-      child: InkWell(
-        onTap: () {
-          press;
-        },
-        child: Stack(
-          alignment: Alignment.bottomCenter,
-          children: [
-            Container(
-              height: 166.0,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(22),
+      child: Column(
+        children: [
+          SizedBox(
+            height: 180,
+            child: Stack(
+              clipBehavior: Clip.none,
+              alignment: Alignment.bottomCenter,
+              children: [
+                Container(
+                  height: 160.0,
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(20),
+                      topRight: Radius.circular(20),
+                    ),
+                    color: Colors.white,
+                    boxShadow: [
+                      BoxShadow(
+                          offset: Offset(0, 15),
+                          blurRadius: 25,
+                          color: Colors.black26),
+                    ],
+                  ),
+                ),
+                // image
+                Positioned(
+                  top: 0.0,
+                  left: 0.0,
+                  child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: kDefaultPadding),
+                    height: 160.0,
+                    width: 170.0,
+                    child: Image.asset(
+                      product.image,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+                // title + description+price
+                Positioned(
+                  top: 40.0,
+                  right: 0.0,
+                  child: Padding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          product.title,
+                          style: Theme.of(context).textTheme.titleLarge,
+                        ),
+                        const SizedBox(height: 15),
+                        Text(
+                          product.subTitle,
+                          style: Theme.of(context).textTheme.caption,
+                        ),
+                        const SizedBox(height: 32),
+                        Text(
+                          'السعر: ${product.price.toStringAsFixed(2)}\$', // Format price with 2 decimal places
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(40),
+                  bottomRight: Radius.circular(40),
+                ),
                 color: Colors.white,
-                boxShadow: const [
+                boxShadow: [
                   BoxShadow(
                       offset: Offset(0, 15),
                       blurRadius: 25,
                       color: Colors.black26),
                 ],
               ),
-            ),
-            Positioned(
-              top: 0.0,
-              left: 0.0,
-              child: Container(
-                padding: EdgeInsets.symmetric(horizontal: kDefaultPadding),
-                height: 160.0,
-                width: 200.0,
-                child: Image.asset(
-                  product.image,
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-            Positioned(
-              bottom: 0.0,
-              right: 0.0,
-              child: SizedBox(
-                height: 136.0,
-                // Because oure image is 200 width, then: width - 200
-                width: size.width - 200,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Spacer(),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: kDefaultPadding),
-                      child: Text(
-                        product.title,
-                        style: Theme.of(context).textTheme.bodyText1,
-                      ),
-                    ),
-                    Spacer(),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: kDefaultPadding),
-                      child: Text(
-                        product.subTitle,
-                        style: Theme.of(context).textTheme.caption,
-                      ),
-                    ),
-                    Spacer(),
-                    Padding(
-                      padding: const EdgeInsets.all(kDefaultPadding),
-                      child: Container(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: kDefaultPadding * 1.5, // 30 px padding
-                          vertical: kDefaultPadding / 5, // 5 px padding
-                        ),
-                        decoration: BoxDecoration(
-                          color: kSecondaryColor,
-                          borderRadius: BorderRadius.circular(22),
-                        ),
-                        child: Text('السعر: \$${product.price}'),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  IconButton(
+                    onPressed: () => null,
+                    icon: Icon(Icons.shopping_cart),
+                    color: Colors.green,
+                  ),
+                  IconButton(
+                    onPressed: () => favorite.addFavorite(product),
+                    icon: check(product.id)
+                        ? Icon(Icons.favorite_outline)
+                        : Icon(Icons.favorite),
+                    color: Colors.red,
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      print(products[4].price);
+                      products[4].price = 1703;
+                      print(products[4].price);
+                    },
+                    icon: Icon(Icons.send),
+                    color: Colors.blue,
+                  ),
+                ],
+              )),
+        ],
       ),
     );
   }

@@ -18,8 +18,8 @@ class HomeBody extends StatelessWidget {
             child: Stack(
               children: [
                 Container(
-                  margin:const EdgeInsets.only(top: 70.0),
-                  decoration:const BoxDecoration(
+                  margin: const EdgeInsets.only(top: 70.0),
+                  decoration: const BoxDecoration(
                     color: kBackgroundColor,
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(40),
@@ -29,19 +29,18 @@ class HomeBody extends StatelessWidget {
                 ),
                 ListView.builder(
                   itemCount: products.length,
-                  itemBuilder: (context, index) => ProductCard(
-                    itemIndex: index,
-                    product: products[index],
-                    press: () {
-                      Navigator.push(
+                  itemBuilder: (context, index) => InkWell(
+                    onTap: () {
+                      Navigator.pushReplacementNamed(
                         context,
-                        MaterialPageRoute(
-                          builder: (context) => DetailsScreen(
-                            product: products[index],
-                          ),
-                        ),
+                        DetailsScreen.detailScreen,
+                        arguments: products[index],
                       );
                     },
+                    child: ProductCard(
+                      itemIndex: index,
+                      product: products[index],
+                    ),
                   ),
                 ),
               ],

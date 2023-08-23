@@ -4,9 +4,10 @@ import '../models/product.dart';
 import '../widgets/details/details_body.dart';
 
 class DetailsScreen extends StatelessWidget {
+  static const String detailScreen = '/detail';
   final Product product;
 
-  const DetailsScreen({ required this.product}) ;
+  const DetailsScreen({super.key, required this.product});
 
   @override
   Widget build(BuildContext context) {
