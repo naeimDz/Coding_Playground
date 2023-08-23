@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:space_practice/widgets/details/product_image.dart';
-import '../../constants.dart';
+import 'package:space_practice/mini_app_store/widgets/details/product_image.dart';
 import '../../models/product.dart';
+import '../../utils/constants.dart';
 
 class DetailsBody extends StatelessWidget {
   final Product product;

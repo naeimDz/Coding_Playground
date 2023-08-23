@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../constants.dart';
+import '../utils/constants.dart';
 import '../models/product.dart';
 import '../widgets/details/details_body.dart';
 

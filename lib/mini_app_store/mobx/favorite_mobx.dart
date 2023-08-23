@@ -1,5 +1,5 @@
 import 'package:mobx/mobx.dart';
-import 'package:space_practice/models/product.dart';
+import 'package:space_practice/mini_app_store/models/product.dart';
 
 part 'favorite_mobx.g.dart';
 

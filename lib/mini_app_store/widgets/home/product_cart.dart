@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
-import '../../constants.dart';
 import '../../mobx/favorite_mobx.dart';
 import '../../models/product.dart';
+import '../../utils/constants.dart';
 
 class ProductCard extends StatelessWidget {
   const ProductCard({

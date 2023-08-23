@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:space_practice/screens/settings_screen/settings.dart';
-import '../constants.dart';
+import 'package:space_practice/mini_app_store/screens/settings_screen/settings.dart';
+import '../utils/constants.dart';
 import '../widgets/home/home_body.dart';
 import 'favorite_screen/favorite.dart';
 

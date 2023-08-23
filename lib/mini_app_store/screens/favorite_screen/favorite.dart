@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
-import 'package:space_practice/constants.dart';
-import 'package:space_practice/mobx/favorite_mobx.dart';
-import 'package:space_practice/models/product.dart';
+import 'package:space_practice/mini_app_store/utils/constants.dart';
+import 'package:space_practice/mini_app_store/models/product.dart';
+import '../../mobx/favorite_mobx.dart';
 
 class FavoritesTab extends StatelessWidget {
     static const String favoriteScreen = '/favorite';

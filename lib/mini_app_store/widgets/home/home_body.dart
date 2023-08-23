@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:space_practice/widgets/home/product_cart.dart';
-import '../../constants.dart';
+import 'package:space_practice/mini_app_store/widgets/home/product_cart.dart';
 import '../../models/product.dart';
 import '../../screens/details_screen.dart';
+import '../../utils/constants.dart';
 
 class HomeBody extends StatelessWidget {
   const HomeBody({super.key});
@@ -31,7 +31,7 @@ class HomeBody extends StatelessWidget {
                   itemCount: products.length,
                   itemBuilder: (context, index) => InkWell(
                     onTap: () {
-                      Navigator.pushReplacementNamed(
+                      Navigator.pushNamed(
                         context,
                         DetailsScreen.detailScreen,
                         arguments: products[index],

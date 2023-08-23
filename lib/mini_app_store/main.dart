@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
-import 'package:space_practice/mobx/favorite_mobx.dart';
-import 'package:space_practice/screens/home_screen.dart';
-import 'package:space_practice/utils/routes.dart';
-
-import 'constants.dart';
+import 'package:space_practice/mini_app_store/utils/routes.dart';
+import 'mobx/favorite_mobx.dart';
+import 'utils/constants.dart';
 
 void main() {
   runApp(const MyApp());
