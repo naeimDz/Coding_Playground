@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
 import '../../mobx/favorite_mobx.dart';
 import '../../models/product.dart';
@@ -83,7 +82,7 @@ class ProductCard extends StatelessWidget {
                         const SizedBox(height: 15),
                         Text(
                           product.subTitle,
-                          style: Theme.of(context).textTheme.caption,
+                          style: Theme.of(context).textTheme.bodySmall,
                         ),
                         const SizedBox(height: 32),
                         Text(

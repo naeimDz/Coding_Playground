@@ -3,6 +3,7 @@ import '../../utils/constants.dart';
 
 class ProductImage extends StatelessWidget {
   const ProductImage({
+    super.key,
     this.size,
     required this.image,
   });
@@ -13,13 +14,13 @@ class ProductImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: kDefaultPadding),
-      height: size!.width * 0.8 ?? 360,
+      height: size!.width * 0.8,
       child: Stack(
         alignment: Alignment.bottomCenter,
         children: [
           Container(
-            height: size!.width * 0.7 ?? 340,
-            width: size!.width * 0.7 ?? 340,
+            height: size!.width * 0.7,
+            width: size!.width * 0.7,
             decoration: BoxDecoration(
               color: Colors.white,
               shape: BoxShape.circle,
@@ -27,8 +28,8 @@ class ProductImage extends StatelessWidget {
           ),
           Image.asset(
             image,
-            height: size!.width * 0.75 ?? 50,
-            width: size!.width * 0.75 ?? 80,
+            height: size!.width * 0.75,
+            width: size!.width * 0.75,
             fit: BoxFit.cover,
           ),
         ],
