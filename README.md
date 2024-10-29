@@ -16,9 +16,9 @@ This project is a starting point for a Flutter application.
  </br> </br> </br>
 
 
-##  Package used
 
-This project follows a custom structure that combines the following:
+## Project Overview
+This project is built with Flutter and is compatible across Android, iOS, and Windows platforms. The app uses the flutter_mobx state management package alongside other utilities for enhanced functionality and UI design.
 
 - [`mobx`]
 - [`provider`]
