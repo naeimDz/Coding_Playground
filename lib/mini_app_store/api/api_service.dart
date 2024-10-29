@@ -14,7 +14,7 @@ class ApiService {
 
   ApiService._internal(); // Private constructor for Singleton
 
-  Future<List<Product>> fetchBooks() async {
+  Future<List<Product>> fetchProducts() async {
     final response = await http.get(Uri.parse('$_baseUrl/books'));
 
     if (response.statusCode == 200) {
