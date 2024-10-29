@@ -81,7 +81,7 @@ class ProductCard extends StatelessWidget {
                         ),
                         const SizedBox(height: 15),
                         Text(
-                          product.subTitle,
+                          product.category,
                           style: Theme.of(context).textTheme.bodySmall,
                         ),
                         const SizedBox(height: 32),
