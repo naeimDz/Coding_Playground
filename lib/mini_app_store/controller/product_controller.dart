@@ -10,11 +10,14 @@ class ProductController {
 
   Future<List<Product>> getItems() async {
     final cachedItems = _cacheService.getCachedItems();
+
     if (cachedItems != null) {
       return cachedItems;
     }
 
     final items = await _apiService.fetchProducts();
+    print(items);
+
     _cacheService.cacheItems(items);
     return items;
   }

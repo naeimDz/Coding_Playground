@@ -17,7 +17,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        Provider<Favorite>(create: (context) => Favorite(),)
+        Provider<Favorite>(
+          create: (context) => Favorite(),
+        )
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -36,7 +38,6 @@ class MyApp extends StatelessWidget {
         supportedLocales: const [Locale("ar")],
         locale: const Locale("ar"),
         onGenerateRoute: Routes.generateRoute,
-        
       ),
     );
   }

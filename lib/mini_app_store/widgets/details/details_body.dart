@@ -6,7 +6,7 @@ import '../../utils/constants.dart';
 class DetailsBody extends StatelessWidget {
   final Product product;
 
-  const DetailsBody({required this.product});
+  const DetailsBody({super.key, required this.product});
 
   @override
   Widget build(BuildContext context) {

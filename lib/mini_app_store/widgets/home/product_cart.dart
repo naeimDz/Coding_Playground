@@ -59,7 +59,7 @@ class ProductCard extends StatelessWidget {
                     padding: EdgeInsets.symmetric(horizontal: kDefaultPadding),
                     height: 160.0,
                     width: 170.0,
-                    child: Image.asset(
+                    child: Image.network(
                       product.image,
                       fit: BoxFit.cover,
                     ),

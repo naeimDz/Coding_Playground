@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:space_practice/mini_app_store/screens/settings_screen/settings.dart';
+import 'package:space_practice/mini_app_store/widgets/home/product_list_page.dart';
 import '../utils/constants.dart';
-import '../widgets/home/home_body.dart';
 import 'favorite_screen/favorite.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -16,7 +16,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _currentIndex = 0;
   final List<Widget> _tabs = [
-    const HomeBody(),
+    const ProductListPage(),
     const FavoritesTab(),
     const SettingsTab(),
   ];
