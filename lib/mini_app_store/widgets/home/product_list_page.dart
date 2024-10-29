@@ -12,6 +12,7 @@ class ProductListPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final ProductStore itemStore = ProductStore();
     itemStore.fetchItems();
+    print(itemStore.items);
     return SafeArea(
       bottom: false,
       child: Column(

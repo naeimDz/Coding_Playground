@@ -16,7 +16,6 @@ class ProductController {
     }
 
     final items = await _apiService.fetchProducts();
-    print(items);
 
     _cacheService.cacheItems(items);
     return items;

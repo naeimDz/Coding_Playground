@@ -62,6 +62,8 @@ class ProductCard extends StatelessWidget {
                     child: Image.network(
                       product.image,
                       fit: BoxFit.cover,
+                      height: 50,
+                      width: 50,
                     ),
                   ),
                 ),
@@ -77,6 +79,9 @@ class ProductCard extends StatelessWidget {
                       children: [
                         Text(
                           product.title,
+                          maxLines: 1,
+                          overflow:
+                              TextOverflow.ellipsis, // Add ellipsis at the end
                           style: Theme.of(context).textTheme.titleLarge,
                         ),
                         const SizedBox(height: 15),
@@ -130,9 +135,7 @@ class ProductCard extends StatelessWidget {
                   ),
                   IconButton(
                     onPressed: () {
-                      print(products[4].price);
                       products[4].price = 1703;
-                      print(products[4].price);
                     },
                     icon: Icon(Icons.send),
                     color: Colors.blue,
